@@ -1,8 +1,8 @@
 const mapHistoryToUniqueDomainsObj = (allHistory) => {
-    // ============= add parsed domain to each history object in allData array ================
+  // ============= add parsed domain to each history object in allData array ================
+  let url, domain;
   allHistory.map((historyItem) => {
-    const url = historyItem.url;
-    let domain;
+    url = historyItem.url;
     if (url.indexOf('://') > -1) {
       domain = url.split('/')[2];
     } else {
