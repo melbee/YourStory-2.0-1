@@ -28,10 +28,8 @@ export default function getCatData() {
       method: 'get',
       url: `${HostPort}/api/catData`,
     }).then((response) => {
-      // console.log("response: ", response.data);
       dispatch(finalGetCatData(response.data));
       const time = (new Date).getTime();
-      // console.log("time from getCatData action: ");
       dispatch(getTimeHistoryLastFetched(time));
     });
   };
