@@ -6,7 +6,6 @@ const getUser = require('./helpers/getUser');
 
 module.exports = (req, res) => {
   const chromeID = req.session.chromeID;
-  // const testID = '12345';
 
   const promisedUserId = new Promise((resolve, reject) => {
     return resolve(getUser(chromeID));

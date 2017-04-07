@@ -9,7 +9,6 @@ module.exports = (req, res) => {
 
   readHistoryByDate(chromeID, dateRange)
     .then((finalHistoryByDate) => {
-      // console.log('finalHistoryByDate: ', finalHistoryByDate);
       res.status(200).json(finalHistoryByDate);
     })
     .catch((err) => {
