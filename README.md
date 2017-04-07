@@ -65,19 +65,19 @@ Go into client/content directory and run the following command:
 ```sh
 webpack --watch
 ```
-<br>
+
 Go into client/event directory and run the following command: 
 ```sh
 webpack --watch
 ```
-<br>
+
 From your PostgreSQL terminal, create a database called 'testyourstory'
-<br>
+
 Start the server from the root of the app by running the following command:
 ```sh
 npm start
 ```
-<br>
+
 Go to chrome://extensions/ in your Chrome browser. Select the 'Developer mode' option on the top right of the screen. Then click the 'Load unpack extension...' button and upload the Public directory.
 
 <br>
