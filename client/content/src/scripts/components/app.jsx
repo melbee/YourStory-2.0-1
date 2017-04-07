@@ -36,8 +36,17 @@ const getChromeIDFromBackground = () => {
 
 // ************** END MOCK ACTIONS ************************
 // ********************************************************
+function FormattedDate(props) {
+  return <h2>{props.date.toLocaleTimeString()}</h2>;
+}
+
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { date: new Date() };
+  }
+
   componentWillMount() {
     // console.log('chrome id props', this.props.chromeID)
         //if chrome)ID does not exsists, dispatch getChromeID    
@@ -46,19 +55,42 @@ class App extends React.Component {
     }
   }
 
-  shouldComponentUpdate(nextProps) {
+  componentDidMount() {  
+    this.timerID = setInterval(
+      () => { console.log("inside set interval"); this.tick()},
+      1000
+    );
+  }
+
+
+  shouldComponentUpdate(nextProps, nextState) {
     // console.log("App componentWillReceiveProps this.props.chromeID: ", this.props.chromeID); 
     // console.log("App componentWillReceiveProps nextProps: ", nextProps.chromeID);    
 
     //if chromeID changes,re-render
-    if (this.props.chromeID !== nextProps.chromeID) {
+    if(this.props.chromeID !== nextProps.chromeID) {
+      return true;
+    } else if (nextState.date !== this.state.date) {
       return true;
     }
     //else if chromeID does not change return false
     return false;
   }
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
 
-  render () {
+  tick() {
+    console.log("inside tick ...");
+    console.log("ci --", this.props.chromeID);
+    this.setState({
+      date: new Date(),
+    });
+  }
+
+
+  render() {
+    console.log("rendering");
     if (this.props.chromeID !== 'no chromeID') {
       return (
         <div>
@@ -71,10 +103,10 @@ class App extends React.Component {
                   <img src="./assets/logo-yourstory.png" height="40px" />
                 </div>
                 <div className="col-sm-2"></div>
-                <div className="col-sm-2">
+                <div className="col-sm-3 name-welcome">
+                  <FormattedDate date={this.state.date} />
                   Welcome back, Melba!
                 </div>
-                <div className="col-sm-1"></div>
               </div>
             </div>
           </div>

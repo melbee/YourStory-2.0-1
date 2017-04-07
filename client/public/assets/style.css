@@ -12,6 +12,9 @@ body {
 line {
   stroke: #ccc;
 }
+.name-welcome {
+  text-align: right;
+}
 
 /* end bar graph css*/
 
