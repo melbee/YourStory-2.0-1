@@ -22,8 +22,7 @@ function getTimeHistoryLastFetched (time) {
 }
 
 export default function getCatData() {
-  // console.log("getting cat data");
-  return function (dispatch) {    
+  return function (dispatch) {
     axios({
       method: 'get',
       url: `${HostPort}/api/catData`,
