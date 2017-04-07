@@ -71,8 +71,6 @@ Go into client/event directory and run the following command:
 webpack --watch
 ```
 
-From your PostgreSQL terminal, create a database called 'testyourstory'
-
 Start the server from the root of the app by running the following command:
 ```sh
 npm start
